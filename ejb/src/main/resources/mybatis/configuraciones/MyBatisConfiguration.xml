@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC 
+"-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="mybatis/configuraciones/MyBatisConfiguration.properties"/>
+	<settings>
+		<setting  name="logImpl" value="LOG4J" />
+	</settings>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="MANAGED" />
+			<dataSource type="JNDI">
+				<property name="data_source" value="${data_source}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<!-- este paquete contiene los mappers de la libreria mybatis-commons -->
+		 <package name="py.com.konecta.commons.mybatis.sql.mapeadores"/> 
+		
+		<!-- aqui se agrega el paquete modelos del modulo -->
+		<package name="py.com.natura.desafio.model"/>
+	</mappers>
+</configuration> 
+
